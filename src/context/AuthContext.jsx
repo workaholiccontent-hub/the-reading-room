@@ -9,23 +9,38 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+  let mounted = true
+
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    if (!mounted) return
+    setUser(session?.user ?? null)
+    if (session?.user) {
+      fetchMember(session.user.id)
+    } else {
+      setLoading(false)
+    }
+  })
+
+  const { data: { subscription } } = supabase.auth.onAuthStateChange(
+    async (_event, session) => {
+      if (!mounted) return
       setUser(session?.user ?? null)
-      if (session?.user) fetchMember(session.user.id)
-      else setLoading(false)
-    })
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (_event, session) => {
-        setUser(session?.user ?? null)
-        if (session?.user) fetchMember(session.user.id)
-        else { setMember(null); setLoading(false) }
+      if (session?.user) {
+        fetchMember(session.user.id)
+      } else {
+        setMember(null)
+        setLoading(false)
       }
-    )
-    return () => subscription.unsubscribe()
-  }, [])
+    }
+  )
 
-  async function fetchMember(authUserId) {
+  return () => {
+    mounted = false
+    subscription.unsubscribe()
+  }
+}, [])
+
+async function fetchMember(authUserId) {
   try {
     const { data } = await supabase
       .from('members')
@@ -34,6 +49,7 @@ export function AuthProvider({ children }) {
       .maybeSingle()
     setMember(data ?? null)
   } catch (e) {
+    console.error('fetchMember error:', e)
     setMember(null)
   } finally {
     setLoading(false)
