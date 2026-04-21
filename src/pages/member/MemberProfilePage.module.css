@@ -1,0 +1,61 @@
+.grid { display: flex; flex-direction: column; gap: 16px; max-width: 560px; }
+
+.card {
+  background: var(--paper);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--paper-dark);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.avatar {
+  width: 72px; height: 72px;
+  background: var(--ink);
+  color: var(--gold-light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 30px; font-weight: 700;
+  flex-shrink: 0;
+}
+
+.memberInfo { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.name { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--ink); }
+.number { font-family: var(--font-mono); font-size: 13px; color: var(--ink-muted); }
+.statusBadge { font-size: 12px; font-weight: 500; text-transform: capitalize; letter-spacing: 0.04em; }
+
+.details { width: 100%; display: flex; flex-direction: column; gap: 0; }
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--paper-dark);
+  gap: 12px;
+}
+.row:last-of-type { border-bottom: none; }
+.rowLabel { font-size: 13px; color: var(--ink-muted); }
+.rowValue { font-size: 14px; color: var(--ink); font-weight: 500; text-align: right; }
+
+.editForm { width: 100%; display: flex; flex-direction: column; gap: 14px; text-align: left; }
+
+.pendingCard {
+  background: rgba(201,168,76,0.07);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+}
+.pendingCard h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gold-dark);
+  margin-bottom: 6px;
+}
+.pendingCard p { font-size: 14px; color: var(--ink-muted); line-height: 1.6; }

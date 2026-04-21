@@ -1,0 +1,314 @@
+.page { overflow-x: hidden; }
+
+/* ── Hero ─────────────────────────── */
+.hero {
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--paper-dark);
+  padding: 0 24px;
+}
+.heroInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 0 64px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 64px;
+  align-items: center;
+}
+.heroText { animation: fadeUp 0.7s ease both; }
+
+.heroEyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  display: block;
+  margin-bottom: 20px;
+}
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.08;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.heroTitle em {
+  font-style: italic;
+  color: var(--gold-dark);
+}
+.heroSub {
+  font-size: 17px;
+  color: var(--ink-muted);
+  max-width: 460px;
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+.heroCta { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 14px 28px;
+  border-radius: var(--radius-xl);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  letter-spacing: 0.01em;
+}
+.ctaPrimary:hover {
+  background: var(--ink-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26,22,18,0.2);
+}
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  font-size: 15px;
+  color: var(--ink-muted);
+  padding: 14px 4px;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+.ctaSecondary:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+/* Book spine visual */
+.heroVisual {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 340px;
+  padding-bottom: 16px;
+  animation: fadeUp 0.9s 0.15s ease both;
+}
+.spine {
+  flex: 1;
+  height: calc(200px + var(--h, 0px));
+  border-radius: 4px 12px 12px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  transition: transform 0.3s ease;
+  box-shadow: inset -3px 0 8px rgba(0,0,0,0.25), var(--shadow-md);
+}
+.spine:hover { transform: translateY(-8px) !important; }
+.spine:nth-child(1) { --h: 80px; }
+.spine:nth-child(2) { --h: 120px; }
+.spine:nth-child(3) { --h: 60px; }
+.spine:nth-child(4) { --h: 140px; }
+.spine:nth-child(5) { --h: 100px; }
+.spineText {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: rgba(250,247,242,0.75);
+  padding: 16px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 100%;
+}
+
+/* Stats strip */
+.statsStrip {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 0;
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--paper-dark);
+}
+.stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0 24px;
+  border-right: 1px solid var(--paper-dark);
+}
+.stat:last-child { border-right: none; }
+.statNum {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.statLabel { font-size: 13px; color: var(--ink-muted); }
+
+/* ── Club banner ──────────────────── */
+.clubBannerSection { padding: 0 24px; }
+.clubBanner {
+  background: var(--ink);
+  border-radius: var(--radius-xl);
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  overflow: hidden;
+  position: relative;
+}
+.clubBanner::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: 200px;
+  width: 200px; height: 200px;
+  background: rgba(201,168,76,0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.clubBannerLeft { flex: 1; min-width: 0; }
+.clubBannerEyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 10px;
+}
+.clubBannerTitle {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  color: var(--paper);
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+.clubBannerAuthor { font-size: 15px; color: rgba(250,247,242,0.55); margin-bottom: 8px; }
+.clubBannerTheme  { font-size: 13px; color: rgba(250,247,242,0.4); font-style: italic; margin-bottom: 20px; }
+.clubBannerActions { display: flex; gap: 12px; flex-wrap: wrap; }
+.clubBannerPrimary {
+  font-size: 14px; font-weight: 500;
+  color: var(--ink); background: var(--gold);
+  padding: 10px 22px; border-radius: var(--radius-xl);
+  transition: background var(--transition), transform var(--transition);
+}
+.clubBannerPrimary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.clubBannerSecondary {
+  font-size: 14px;
+  color: rgba(250,247,242,0.55);
+  padding: 10px 0;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+.clubBannerSecondary:hover { color: var(--paper); border-color: rgba(250,247,242,0.3); }
+
+.clubBannerCover {
+  width: 100px;
+  aspect-ratio: 2/3;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  flex-shrink: 0;
+  transform: rotate(2deg);
+  transition: transform var(--transition);
+}
+.clubBannerCover:hover { transform: rotate(0deg); }
+.clubBannerCover img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── Sections ─────────────────────── */
+.section { padding: 72px 24px; }
+.howSection {
+  padding: 72px 24px;
+  background: var(--ink);
+}
+.howSection .sectionTitle { color: var(--paper); }
+
+.sectionInner { max-width: 1200px; margin: 0 auto; }
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+}
+.sectionLink {
+  font-size: 14px;
+  color: var(--ink-muted);
+  transition: color var(--transition);
+}
+.sectionLink:hover { color: var(--ink); }
+
+.bookGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+/* Steps */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.step { padding: 0 8px; }
+.stepNum {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--paper);
+  margin-bottom: 8px;
+}
+.stepBody { font-size: 14px; color: rgba(250,247,242,0.55); line-height: 1.6; }
+
+/* CTA Banner */
+.banner {
+  background: var(--paper-warm);
+  border-top: 1px solid var(--paper-dark);
+  padding: 72px 24px;
+  text-align: center;
+}
+.bannerInner { max-width: 520px; margin: 0 auto; }
+.bannerTitle {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.bannerSub { font-size: 16px; color: var(--ink-muted); margin-bottom: 28px; }
+.bannerBtn {
+  display: inline-flex;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--paper);
+  background: var(--ink);
+  padding: 14px 32px;
+  border-radius: var(--radius-xl);
+  transition: background var(--transition), transform var(--transition);
+}
+.bannerBtn:hover { background: var(--ink-light); transform: translateY(-2px); }
+
+@media (max-width: 900px) {
+  .heroInner { grid-template-columns: 1fr; gap: 40px; padding: 48px 0 40px; }
+  .heroVisual { height: 200px; }
+  .statsStrip { flex-wrap: wrap; }
+  .stat { min-width: 50%; border-right: none; padding: 12px 0; border-bottom: 1px solid var(--paper-dark); }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .bookGrid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+}
+@media (max-width: 600px) {
+  .steps { grid-template-columns: 1fr; }
+}

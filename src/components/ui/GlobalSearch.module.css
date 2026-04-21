@@ -1,0 +1,161 @@
+.overlay {
+  position: fixed; inset: 0; z-index: 300;
+  background: rgba(26,22,18,0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 80px 16px 40px;
+  animation: fadeIn 0.15s ease both;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  width: 100%;
+  max-width: 620px;
+  background: var(--paper);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 24px 80px rgba(26,22,18,0.3);
+  overflow: hidden;
+  animation: slideDown 0.2s cubic-bezier(0.34,1.2,0.64,1) both;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--paper-dark);
+}
+.searchIcon { color: var(--ink-muted); flex-shrink: 0; }
+.input {
+  flex: 1;
+  font-size: 17px;
+  color: var(--ink);
+  background: none;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+}
+.input::placeholder { color: var(--ink-muted); opacity: 0.6; }
+.closeBtn {
+  flex-shrink: 0;
+  padding: 3px 8px;
+}
+.closeBtn kbd {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-muted);
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-dark);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+.body { max-height: 480px; overflow-y: auto; }
+
+.hint {
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hint p { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+
+.loadingRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 20px;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid var(--paper-dark);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.noResults {
+  padding: 28px 20px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.noResults p { font-size: 14px; color: var(--ink-muted); }
+.noResults strong { color: var(--ink); }
+
+.results {}
+.resultCount {
+  padding: 10px 18px 6px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-muted);
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--paper-dark);
+  transition: background var(--transition);
+}
+.result:last-child { border-bottom: none; }
+.result:hover { background: var(--paper-warm); }
+
+.resultCover {
+  width: 38px; height: 52px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--paper-dark);
+  flex-shrink: 0;
+}
+.resultCover img { width: 100%; height: 100%; object-fit: cover; }
+.resultCoverInit {
+  width: 100%; height: 100%;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 18px; font-weight: 700;
+}
+
+.resultInfo { flex: 1; min-width: 0; }
+.resultTitle {
+  font-size: 14px; font-weight: 600; color: var(--ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.resultAuthor { font-size: 12px; color: var(--ink-muted); margin-top: 1px; }
+.resultGenre {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-top: 3px;
+  display: block;
+}
+
+.resultRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.availPill {
+  font-size: 11px; font-weight: 500;
+  padding: 3px 9px; border-radius: var(--radius-xl);
+}
+.available   { background: rgba(90,122,106,0.1); color: var(--sage); }
+.unavailable { background: rgba(122,111,104,0.1); color: var(--ink-muted); }
+.resultRating { font-size: 12px; color: var(--gold-dark); }

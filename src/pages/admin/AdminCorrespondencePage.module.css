@@ -1,0 +1,155 @@
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--paper-dark);
+  margin-bottom: 28px;
+}
+.tab {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  padding: 10px 20px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color var(--transition), border-color var(--transition);
+}
+.tab:hover { color: var(--ink); }
+.tabActive { color: var(--ink); border-color: var(--ink); }
+
+.loading { font-size: 15px; color: var(--ink-muted); padding: 32px 0; }
+.empty { padding: 48px 32px; text-align: center; background: var(--paper-warm); border-radius: var(--radius-lg); }
+.emptyTitle { font-family: var(--font-display); font-size: 20px; color: var(--ink-muted); margin-bottom: 6px; }
+.emptySub { font-size: 14px; color: var(--ink-muted); opacity: 0.7; max-width: 400px; margin: 0 auto; line-height: 1.5; }
+
+/* Reader grid */
+.readerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.readerCard {
+  background: var(--paper);
+  border: 1px solid var(--paper-dark);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition);
+}
+.readerCard:hover { box-shadow: var(--shadow-md); }
+
+.readerCover {
+  width: 48px; height: 66px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--paper-dark);
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+.readerCover img { width: 100%; height: 100%; object-fit: cover; }
+.readerCoverPlaceholder {
+  width: 100%; height: 100%;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 22px; font-weight: 700;
+}
+
+.readerInfo { flex: 1; min-width: 0; }
+.readerName { font-size: 14px; font-weight: 600; color: var(--ink); }
+.readerMem { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); margin-bottom: 6px; }
+.readerBook { font-size: 13px; font-weight: 500; color: var(--ink); }
+.readerAuthor { font-size: 12px; color: var(--ink-muted); margin-bottom: 6px; }
+.readerProgress { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+.progressBar { flex: 1; height: 4px; background: var(--paper-dark); border-radius: 2px; overflow: hidden; }
+.progressFill { height: 100%; background: var(--gold); border-radius: 2px; }
+.progressPct { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); min-width: 30px; }
+
+.composeBtn {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gold-dark);
+  text-align: left;
+  padding: 8px 0 0;
+  border-top: 1px solid var(--paper-dark);
+  margin-top: 2px;
+  transition: color var(--transition);
+}
+.composeBtn:hover { color: var(--ink); }
+
+/* Compose modal internals */
+.composeContext {
+  display: flex;
+  gap: 16px;
+  background: var(--paper-warm);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  align-items: flex-start;
+}
+.composeMember { display: flex; align-items: center; gap: 10px; min-width: 160px; }
+.composeAvatar {
+  width: 36px; height: 36px;
+  background: var(--ink);
+  color: var(--gold-light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 16px; font-weight: 700;
+  flex-shrink: 0;
+}
+.composeMemberName { font-size: 14px; font-weight: 600; color: var(--ink); }
+.composeMemberSub { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); }
+.composeBook { flex: 1; border-left: 1px solid var(--paper-dark); padding-left: 16px; }
+.composeBookTitle { font-size: 14px; font-weight: 600; color: var(--ink); }
+.composeBookAuthor { font-size: 12px; color: var(--ink-muted); }
+.composeProgress { font-size: 11px; color: var(--gold-dark); margin-top: 4px; font-family: var(--font-mono); }
+
+/* History */
+.histList { display: flex; flex-direction: column; gap: 10px; }
+.histRow {
+  background: var(--paper);
+  border: 1px solid var(--paper-dark);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.histDraft { border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.02); }
+.histMain { flex: 1; min-width: 0; }
+.histBadge {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: var(--radius-xl);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.histSent { background: rgba(90,122,106,0.1); color: var(--sage); }
+.histDraftBadge { background: rgba(201,168,76,0.12); color: var(--gold-dark); }
+.histType {
+  font-size: 12px;
+  color: var(--ink-muted);
+  text-transform: capitalize;
+}
+.histBook { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.histMember { font-size: 13px; color: var(--ink-muted); margin-bottom: 6px; }
+.histContent {
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+.histDate { font-size: 11px; color: var(--ink-muted); }
+.histActions { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+
+@media (max-width: 700px) {
+  .readerGrid { grid-template-columns: 1fr; }
+  .composeContext { flex-direction: column; }
+  .composeBook { border-left: none; border-top: 1px solid var(--paper-dark); padding-left: 0; padding-top: 12px; }
+  .histRow { flex-direction: column; }
+  .histActions { flex-direction: row; }
+}

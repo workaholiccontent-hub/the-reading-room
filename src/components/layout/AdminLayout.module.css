@@ -1,0 +1,65 @@
+.shell { display: flex; min-height: 100vh; background: #f5f5f5; }
+
+.sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: #111;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 12px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.brand { padding: 0 8px; margin-bottom: 32px; }
+.brandLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 4px;
+}
+.brandSub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  transition: color var(--transition);
+}
+.brandSub:hover { color: rgba(255,255,255,0.7); }
+
+.nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.navItem {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  transition: background var(--transition), color var(--transition);
+}
+.navItem:hover { background: rgba(255,255,255,0.06); color: #fff; }
+.navItem.active { background: rgba(201,168,76,0.18); color: var(--gold-light); }
+.navIcon { font-size: 14px; width: 18px; text-align: center; }
+
+.adminBadge {
+  background: rgba(255,255,255,0.05);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+.adminBadge span { font-size: 13px; color: rgba(255,255,255,0.6); display: block; }
+.role { font-size: 11px; color: var(--gold) !important; margin-top: 2px; letter-spacing: 0.05em; }
+
+.signOutBtn {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  padding: 8px 12px;
+  text-align: left;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition);
+}
+.signOutBtn:hover { color: var(--rust); }
+
+.content { flex: 1; min-width: 0; }
+.contentInner { max-width: 1100px; margin: 0 auto; padding: 36px 32px; }

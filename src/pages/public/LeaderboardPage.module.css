@@ -1,0 +1,282 @@
+.page { padding: 56px 24px 96px; min-height: 80vh; }
+.inner { max-width: 780px; margin: 0 auto; }
+
+.pageHead { margin-bottom: 36px; animation: fadeUp 0.5s ease both; }
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 10px;
+}
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.sub { font-size: 16px; color: var(--ink-muted); }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  padding: 9px 18px;
+  border: 1.5px solid var(--paper-dark);
+  border-radius: var(--radius-xl);
+  background: var(--paper);
+  transition: all var(--transition);
+}
+.tab:hover { color: var(--ink); border-color: var(--ink-muted); }
+.tabActive { color: var(--ink); border-color: var(--ink); background: var(--paper-warm); }
+.tabIcon { font-size: 16px; }
+
+.catDesc {
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+/* My rank callout */
+.myRank {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(201,168,76,0.07);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.myRankLabel {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-dark);
+  font-family: var(--font-mono);
+}
+.myRankValue {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--ink);
+}
+.myRankSub { font-size: 13px; color: var(--ink-muted); }
+.myRankLink {
+  font-size: 13px;
+  color: var(--gold-dark);
+  margin-left: auto;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+.myRankLink:hover { color: var(--ink); }
+
+/* Loading */
+.loadingList { display: flex; flex-direction: column; gap: 10px; }
+.skeleton {
+  height: 60px;
+  border-radius: var(--radius-md);
+  background-image: linear-gradient(90deg, var(--paper-warm) 25%, var(--paper-dark) 50%, var(--paper-warm) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+.empty {
+  padding: 56px 32px;
+  text-align: center;
+  background: var(--paper-warm);
+  border-radius: var(--radius-xl);
+  font-size: 16px;
+  color: var(--ink-muted);
+}
+
+/* ── Podium ──────────────────────────── */
+.podium {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  padding: 0 0 0;
+}
+.podiumSlot {
+  flex: 1;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeUp 0.6s ease both;
+}
+.podiumSlot:nth-child(1) { animation-delay: 0.1s; }
+.podiumSlot:nth-child(2) { animation-delay: 0s; }
+.podiumSlot:nth-child(3) { animation-delay: 0.2s; }
+
+.podiumAvatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--paper-dark);
+  color: var(--ink-muted);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 700;
+  position: relative;
+  border: 3px solid var(--paper);
+  box-shadow: var(--shadow-sm);
+}
+.podiumSlot:nth-child(2) .podiumAvatar {
+  width: 64px; height: 64px;
+  font-size: 28px;
+  background: var(--gold);
+  color: var(--ink);
+  box-shadow: 0 0 0 4px rgba(201,168,76,0.2), var(--shadow-md);
+}
+.podiumYouBadge {
+  position: absolute;
+  bottom: -6px;
+  font-size: 9px;
+  font-weight: 700;
+  background: var(--ink);
+  color: var(--gold);
+  padding: 1px 6px;
+  border-radius: var(--radius-xl);
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+.podiumName {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: center;
+}
+.podiumVal {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-muted);
+  text-align: center;
+}
+.podiumVal span { font-size: 10px; }
+
+.podiumBlock {
+  width: 100%;
+  height: var(--h);
+  background: var(--paper-warm);
+  border: 1px solid var(--paper-dark);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: background var(--transition);
+}
+.podiumSlot:nth-child(2) .podiumBlock {
+  background: rgba(201,168,76,0.1);
+  border-color: rgba(201,168,76,0.3);
+}
+.podiumMe .podiumBlock { background: rgba(90,122,106,0.08); border-color: rgba(90,122,106,0.25); }
+.podiumMedal { font-size: 28px; }
+.podiumRank {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+/* ── List ── */
+.list {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--paper-dark);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.listRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--paper-dark);
+  transition: background var(--transition);
+}
+.listRow:last-child { border-bottom: none; }
+.listRow:hover { background: var(--paper-warm); }
+.listRowMe {
+  background: rgba(201,168,76,0.05);
+  border-color: rgba(201,168,76,0.15);
+}
+.listRank {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  min-width: 32px;
+}
+.listAvatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--paper-dark);
+  color: var(--ink-muted);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 14px; font-weight: 700;
+  flex-shrink: 0;
+}
+.listInfo { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.listName {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.youBadge {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  background: rgba(201,168,76,0.15);
+  color: var(--gold-dark);
+  padding: 1px 7px;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.listMem {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+.listVal { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; }
+.listValNum {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+.listValLabel { font-size: 11px; color: var(--ink-muted); }
+
+@media (max-width: 600px) {
+  .podium { gap: 6px; }
+  .tabs { gap: 6px; }
+  .tab { font-size: 13px; padding: 8px 12px; }
+}

@@ -1,0 +1,182 @@
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--paper-dark);
+  margin-bottom: 28px;
+}
+.tab {
+  font-size: 14px; font-weight: 500;
+  color: var(--ink-muted);
+  padding: 10px 20px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color var(--transition), border-color var(--transition);
+}
+.tab:hover { color: var(--ink); }
+.tabActive { color: var(--ink); border-color: var(--ink); }
+
+.loading { font-size: 15px; color: var(--ink-muted); padding: 32px 0; }
+.empty {
+  padding: 40px 32px;
+  background: var(--paper-warm);
+  border-radius: var(--radius-lg);
+  font-size: 15px;
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+/* Picks grid */
+.picksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.pickCard {
+  background: var(--paper);
+  border: 1px solid var(--paper-dark);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+.pickCard:hover { box-shadow: var(--shadow-md); }
+.pickActive {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(201,168,76,0.2), var(--shadow-sm);
+}
+
+.activeBadge {
+  position: absolute;
+  top: 10px; right: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 3px 9px;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+}
+
+.pickCover {
+  aspect-ratio: 2/3;
+  max-height: 200px;
+  background: var(--paper-dark);
+  overflow: hidden;
+}
+.pickCover img { width: 100%; height: 100%; object-fit: cover; }
+.coverPlaceholder {
+  width: 100%; height: 100%;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 28px; font-weight: 700;
+}
+
+.pickInfo { padding: 14px 14px 8px; flex: 1; }
+.pickMonth {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-dark);
+  display: block;
+  margin-bottom: 4px;
+}
+.pickTitle { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.3; margin-bottom: 2px; }
+.pickAuthor { font-size: 12px; color: var(--ink-muted); }
+.pickTheme { font-size: 11px; color: var(--ink-muted); font-style: italic; margin-top: 4px; }
+.pickRating { font-size: 11px; color: var(--gold-dark); margin-top: 4px; }
+
+.pickCardActions {
+  padding: 10px 14px 14px;
+  display: flex;
+  gap: 8px;
+}
+
+/* Discussions */
+.discussionsNote {
+  font-size: 14px;
+  color: var(--ink-muted);
+  margin-bottom: 16px;
+}
+.discussionsList {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--paper-dark);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.discussionRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--paper-dark);
+  transition: background var(--transition);
+}
+.discussionRow:last-child { border-bottom: none; }
+.discussionRow:hover { background: var(--paper-warm); }
+.discussionRowInfo { flex: 1; min-width: 0; }
+.discussionTitle {
+  font-size: 14px; font-weight: 500; color: var(--ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.discussionMeta { font-size: 12px; color: var(--ink-muted); margin-top: 3px; }
+.pin { font-size: 12px; }
+.lock { font-size: 12px; }
+
+/* Flagged */
+.moderateWrap {}
+.flaggedList { display: flex; flex-direction: column; gap: 12px; }
+.flaggedCard {
+  background: var(--paper);
+  border: 1px solid rgba(184,92,56,0.2);
+  border-left: 4px solid var(--rust);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-sm);
+}
+.flaggedHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.flaggedAuthor { font-size: 13px; font-weight: 600; color: var(--ink); }
+.flaggedDiscussion {
+  font-size: 12px;
+  color: var(--ink-muted);
+  background: var(--paper-warm);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+.flaggedDate { font-size: 11px; color: var(--ink-muted); margin-left: auto; }
+.flaggedBody {
+  font-size: 14px;
+  color: var(--ink-muted);
+  line-height: 1.65;
+  margin-bottom: 14px;
+  background: var(--paper-warm);
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+}
+.flaggedActions { display: flex; gap: 10px; }
+
+@media (max-width: 800px) {
+  .statsRow { grid-template-columns: 1fr 1fr; }
+  .picksGrid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}

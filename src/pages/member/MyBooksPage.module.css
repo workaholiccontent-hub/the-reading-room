@@ -1,0 +1,103 @@
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--paper-dark);
+  margin-bottom: 28px;
+}
+.tab {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  padding: 10px 20px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: color var(--transition), border-color var(--transition);
+}
+.tab:hover { color: var(--ink); }
+.tab.active { color: var(--ink); border-color: var(--ink); }
+.tabBadge {
+  font-size: 11px;
+  background: var(--paper-dark);
+  color: var(--ink-muted);
+  padding: 1px 7px;
+  border-radius: var(--radius-xl);
+}
+
+.loading { font-size: 15px; color: var(--ink-muted); padding: 40px 0; }
+.empty {
+  padding: 48px 32px;
+  text-align: center;
+  background: var(--paper-warm);
+  border-radius: var(--radius-lg);
+}
+.emptyTitle { font-family: var(--font-display); font-size: 20px; color: var(--ink-muted); margin-bottom: 6px; }
+.emptySub { font-size: 15px; color: var(--ink-muted); opacity: 0.7; }
+
+.list { display: flex; flex-direction: column; gap: 12px; }
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--paper-dark);
+  transition: box-shadow var(--transition);
+}
+.card:hover { box-shadow: var(--shadow-md); }
+.overdueCard { border-color: rgba(184,92,56,0.25); background: rgba(184,92,56,0.02); }
+
+.cardCover {
+  width: 52px; height: 72px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--paper-dark);
+}
+.cardCover img { width: 100%; height: 100%; object-fit: cover; }
+.coverPlaceholder {
+  width: 100%; height: 100%;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.cardBody { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.cardTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: color var(--transition);
+}
+.cardTitle:hover { color: var(--gold-dark); }
+.cardAuthor { font-size: 13px; color: var(--ink-muted); }
+.genre {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.cardMeta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+.metaOverdue { color: var(--rust); font-weight: 500; }
+.metaSoon { color: var(--gold-dark); font-weight: 500; }
+
+.cardAction { flex-shrink: 0; }

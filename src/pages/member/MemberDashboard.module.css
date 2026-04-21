@@ -1,0 +1,122 @@
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.alert {
+  background: rgba(184,92,56,0.08);
+  border: 1px solid rgba(184,92,56,0.22);
+  border-left: 4px solid var(--rust);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--rust);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.alertWarn {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.22);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--gold-dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.alertLink {
+  font-weight: 500;
+  text-decoration: underline;
+  margin-left: auto;
+}
+
+.section { margin-bottom: 40px; }
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.sectionLink { font-size: 13px; color: var(--ink-muted); transition: color var(--transition); }
+.sectionLink:hover { color: var(--ink); }
+
+.loading { font-size: 14px; color: var(--ink-muted); }
+.empty { padding: 24px; background: var(--paper-warm); border-radius: var(--radius-lg); }
+.empty p { font-size: 15px; color: var(--ink-muted); }
+.emptyLink { font-size: 14px; color: var(--gold-dark); margin-top: 6px; display: block; }
+
+/* Loan rows */
+.loanList { display: flex; flex-direction: column; gap: 1px; background: var(--paper-dark); border-radius: var(--radius-lg); overflow: hidden; }
+.loanRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--paper);
+  transition: background var(--transition);
+}
+.loanRow:hover { background: var(--paper-warm); }
+.loanCover {
+  width: 40px; height: 56px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--paper-dark);
+}
+.loanCover img { width: 100%; height: 100%; object-fit: cover; }
+.loanCoverPlaceholder { width: 100%; height: 100%; background: var(--paper-dark); }
+.loanInfo { flex: 1; min-width: 0; }
+.loanTitle { font-size: 14px; font-weight: 500; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.loanAuthor { font-size: 12px; color: var(--ink-muted); }
+.loanBorrowed { font-size: 11px; color: var(--ink-muted); margin-top: 2px; }
+
+.dueBadge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: var(--radius-xl);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.dueOk      { background: rgba(90,122,106,0.1); color: var(--sage); }
+.dueSoon    { background: rgba(201,168,76,0.12); color: var(--gold-dark); }
+.dueOverdue { background: rgba(184,92,56,0.1); color: var(--rust); }
+
+/* Reading rows */
+.readingList { display: flex; flex-direction: column; gap: 1px; background: var(--paper-dark); border-radius: var(--radius-lg); overflow: hidden; }
+.readingRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  background: var(--paper);
+}
+.readingInfo { flex: 1; min-width: 0; }
+.readingTitle { font-size: 14px; font-weight: 500; color: var(--ink); }
+.readingAuthor { font-size: 12px; color: var(--ink-muted); }
+.progressWrap { display: flex; align-items: center; gap: 10px; min-width: 140px; }
+.progressBar { flex: 1; height: 5px; background: var(--paper-dark); border-radius: 3px; overflow: hidden; }
+.progressFill { height: 100%; background: var(--gold); border-radius: 3px; transition: width 0.4s ease; }
+.progressPct { font-family: var(--font-mono); font-size: 11px; color: var(--ink-muted); min-width: 32px; text-align: right; }
+
+@media (max-width: 800px) {
+  .statsGrid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .statsGrid { grid-template-columns: 1fr 1fr; gap: 10px; }
+}

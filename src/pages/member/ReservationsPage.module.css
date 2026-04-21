@@ -1,0 +1,76 @@
+.loading { font-size: 15px; color: var(--ink-muted); padding: 40px 0; }
+.section { margin-bottom: 40px; }
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.count {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--paper-dark);
+  color: var(--ink-muted);
+  padding: 2px 9px;
+  border-radius: var(--radius-xl);
+}
+.empty {
+  padding: 32px 24px;
+  background: var(--paper-warm);
+  border-radius: var(--radius-lg);
+}
+.empty p { font-size: 15px; color: var(--ink-muted); }
+.emptyLink { font-size: 14px; color: var(--gold-dark); margin-top: 6px; display: block; }
+
+.list { display: flex; flex-direction: column; gap: 10px; }
+.card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--paper);
+  border: 1px solid var(--paper-dark);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition);
+}
+.card:hover { box-shadow: var(--shadow-md); }
+.pastCard { opacity: 0.65; }
+
+.cover {
+  width: 44px; height: 60px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--paper-dark);
+  flex-shrink: 0;
+}
+.cover img { width: 100%; height: 100%; object-fit: cover; }
+.coverPlaceholder {
+  width: 100%; height: 100%;
+  background: var(--ink);
+  color: var(--paper);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 20px; font-weight: 700;
+}
+
+.info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.title { font-size: 15px; font-weight: 600; color: var(--ink); transition: color var(--transition); }
+.title:hover { color: var(--gold-dark); }
+.author { font-size: 13px; color: var(--ink-muted); }
+.date { font-size: 12px; color: var(--ink-muted); margin-top: 3px; }
+.notes { font-size: 12px; color: var(--ink-muted); font-style: italic; }
+
+.statusBadge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 10px;
+  border-radius: var(--radius-xl);
+  display: inline-block;
+  margin-top: 4px;
+}
+.statusPending { background: rgba(201,168,76,0.12); color: var(--gold-dark); }
+.statusFulfilled { background: rgba(90,122,106,0.1); color: var(--sage); }
