@@ -45,7 +45,7 @@ function MemberRoute({ children }) {
   const { user, member, loading } = useAuth()
   if (loading) return <PageLoader />
   if (!user) return <Navigate to="/login" replace />
-  if (!member) return <PageLoader />
+  if (!member) return <Navigate to="/login" replace />
   return children
 }
 
