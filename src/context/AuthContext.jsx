@@ -26,29 +26,35 @@ export function AuthProvider({ children }) {
   }, [])
 
   async function fetchMember(authUserId) {
+  try {
     const { data } = await supabase
       .from('members')
       .select('*')
       .eq('auth_user_id', authUserId)
       .maybeSingle()
-    setMember(data)
+    setMember(data ?? null)
+  } catch (e) {
+    setMember(null)
+  } finally {
     setLoading(false)
   }
+}
 
   async function signUp({ email, password, fullName, phone }) {
-    const { data, error } = await supabase.auth.signUp({ email, password })
-    if (error) throw error
-    // Create member profile
-    const { error: memberError } = await supabase.from('members').insert({
-      auth_user_id: data.user.id,
-      full_name: fullName,
-      email,
-      phone: phone || null,
-      status: 'pending',
-      role: 'member'
-    })
-    if (memberError) throw memberError
-    return data
+  const { data, error } = await supabase.auth.signUp({ email, password })
+  if (error) throw error
+  
+  const { error: memberError } = await supabase.from('members').insert({
+    auth_user_id: data.user.id,
+    full_name: fullName,
+    email,
+    phone: phone || null,
+    status: 'pending',
+    role: 'member'
+  })
+  
+  if (memberError) throw new Error('Account created but profile failed: ' + memberError.message)
+  return data
   }
 
   async function signIn({ email, password }) {
